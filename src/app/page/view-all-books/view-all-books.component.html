@@ -1,128 +1,121 @@
-
-<div class="table-responsive small">
-  <table class="table table-striped table-sm">
+<div class="table-responsive small container">
+  <table class="table table-striped table-sm" *ngIf="bookList">
     <thead>
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">Header</th>
-        <th scope="col">Header</th>
-        <th scope="col">Header</th>
-        <th scope="col">Header</th>
+        <th scope="col">id</th>
+        <th scope="col">ISBM</th>
+        <th scope="col">Title</th>
+        <th scope="col">Author</th>
+        <th scope="col">Category</th>
+        <th scope="col">QTY</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>1,001</td>
-        <td>random</td>
-        <td>data</td>
-        <td>placeholder</td>
-        <td>text</td>
+
+      <tr *ngFor="let book of bookList;">
+        <td>#BN{{book.id}}</td>
+        <td>{{book.isbm}}</td>
+        <td>{{book.title}}</td>
+        <td>{{book.author}}</td>
+        <td>{{book.category}}</td>
+        <td>{{book.qty}}</td>
+        <td><button (onclick)="setSelectedBook(book)" data-bs-toggle="modal" data-bs-target="#dltModal" type="button" class="btn btn-danger" >
+            <i class="bi bi-trash3"></i>
+          </button></td>
+        <td><button (onclick)="setSelectedBook(book)" data-bs-whatever="@mdo" data-bs-toggle="modal" data-bs-target="#updateModal" class="btn btn-success">
+            <i class="bi bi-pencil-square"></i>
+          </button></td>
       </tr>
-      <tr>
-        <td>1,002</td>
-        <td>placeholder</td>
-        <td>irrelevant</td>
-        <td>visual</td>
-        <td>layout</td>
-      </tr>
-      <tr>
-        <td>1,003</td>
-        <td>data</td>
-        <td>rich</td>
-        <td>dashboard</td>
-        <td>tabular</td>
-      </tr>
-      <tr>
-        <td>1,003</td>
-        <td>information</td>
-        <td>placeholder</td>
-        <td>illustrative</td>
-        <td>data</td>
-      </tr>
-      <tr>
-        <td>1,004</td>
-        <td>text</td>
-        <td>random</td>
-        <td>layout</td>
-        <td>dashboard</td>
-      </tr>
-      <tr>
-        <td>1,005</td>
-        <td>dashboard</td>
-        <td>irrelevant</td>
-        <td>text</td>
-        <td>placeholder</td>
-      </tr>
-      <tr>
-        <td>1,006</td>
-        <td>dashboard</td>
-        <td>illustrative</td>
-        <td>rich</td>
-        <td>data</td>
-      </tr>
-      <tr>
-        <td>1,007</td>
-        <td>placeholder</td>
-        <td>tabular</td>
-        <td>information</td>
-        <td>irrelevant</td>
-      </tr>
-      <tr>
-        <td>1,008</td>
-        <td>random</td>
-        <td>data</td>
-        <td>placeholder</td>
-        <td>text</td>
-      </tr>
-      <tr>
-        <td>1,009</td>
-        <td>placeholder</td>
-        <td>irrelevant</td>
-        <td>visual</td>
-        <td>layout</td>
-      </tr>
-      <tr>
-        <td>1,010</td>
-        <td>data</td>
-        <td>rich</td>
-        <td>dashboard</td>
-        <td>tabular</td>
-      </tr>
-      <tr>
-        <td>1,011</td>
-        <td>information</td>
-        <td>placeholder</td>
-        <td>illustrative</td>
-        <td>data</td>
-      </tr>
-      <tr>
-        <td>1,012</td>
-        <td>text</td>
-        <td>placeholder</td>
-        <td>layout</td>
-        <td>dashboard</td>
-      </tr>
-      <tr>
-        <td>1,013</td>
-        <td>dashboard</td>
-        <td>irrelevant</td>
-        <td>text</td>
-        <td>visual</td>
-      </tr>
-      <tr>
-        <td>1,014</td>
-        <td>dashboard</td>
-        <td>illustrative</td>
-        <td>rich</td>
-        <td>data</td>
-      </tr>
-      <tr>
-        <td>1,015</td>
-        <td>random</td>
-        <td>tabular</td>
-        <td>information</td>
-        <td>text</td>
-      </tr>
+
     </tbody>
   </table>
+</div>
+
+
+<!-- Modal -delete btn-->
+<div class="modal fade" id="dltModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Please Confirm</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Do you want to delete the selected book ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger" (click)="deleteBook()" data-bs-dismiss="modal">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- Button       update confirmation    2.1 -->
+
+<div class="modal fade" id="updateConfirmationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Update Confirmation</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        If you want to Update this Book
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="saveBook()">Confirm Update</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -update btn----   2    -->
+
+<div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Update Data</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">ID:</label>
+            <input type="text" value={{selectedBook?.id}} disabled class="form-control" id="recipient-name">
+          </div>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">ISBM:</label>
+            <input type="text" value={{selectedBook?.isbn}} disabled class="form-control" id="recipient-name">
+          </div>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Title:</label>
+            <input type="text" [(ngModel)]="selectedBook && selectedBook.title"    [ngModelOptions]="{standalone:true}" class="form-control" id="recipient-name">
+          </div>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Author:</label>
+            <input type="text" [(ngModel)]="selectedBook && selectedBook.author"   [ngModelOptions]="{standalone:true}" class="form-control" id="recipient-name">
+          </div>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Category:</label>
+            <input type="text" [(ngModel)]="selectedBook && selectedBook.category" [ngModelOptions]="{standalone:true}" class="form-control" id="recipient-name">
+          </div>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">QTY:</label>
+            <input type="number" [(ngModel)]="selectedBook && selectedBook.qty"    [ngModelOptions]="{standalone:true}" class="form-control" id="recipient-name">
+          </div>
+          
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#updateConfirmationModal" >Update</button>
+      </div>
+    </div>
+  </div>
 </div>
