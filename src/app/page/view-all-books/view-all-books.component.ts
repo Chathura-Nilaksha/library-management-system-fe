@@ -3,13 +3,14 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import Swal from 'sweetalert2';
+import { NavComponent } from "../../common/nav/nav.component";
 
 @Component({
-  selector: 'app-view-all-books',
-  standalone: true,
-  imports: [HttpClientModule, CommonModule, FormsModule],
-  templateUrl: './view-all-books.component.html',
-  styleUrl: './view-all-books.component.css'
+    selector: 'app-view-all-books',
+    standalone: true,
+    templateUrl: './view-all-books.component.html',
+    styleUrl: './view-all-books.component.css',
+    imports: [HttpClientModule, CommonModule, FormsModule, NavComponent]
 })
 
 export class ViewAllBooksComponent implements OnInit{
@@ -26,7 +27,7 @@ export class ViewAllBooksComponent implements OnInit{
   }
 
   loadBooks(){
-    this.http.get('http://localhost:8080/book/get').subscribe((data)=> {
+    this.http.get("http://localhost:8080/book/get").subscribe((data)=> {
       this.bookList = data;
       console.log(this.bookList);
     });
