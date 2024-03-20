@@ -1,3 +1,4 @@
+<app-nav></app-nav>
 <div class="container">
     <table class="table table-hover table-bordered" *ngIf="userList">
         <thead>
@@ -34,8 +35,8 @@
 
 
 <!-- taken from 'view-all-books component' -->
-
 <!-- Modal -delete btn-->     <!-- taken from 'view-all-books component' -->
+
 <div class="modal fade" id="dltModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -55,9 +56,7 @@
   </div>
   
   
-  
-  
-  <!-- Button       update confirmation    2.1 -->
+<!-- Button       update confirmation    2.1 -->
   
   <div class="modal fade" id="updateConfirmationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -71,13 +70,13 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="saveUser(selectedUser)">Confirm Update</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="saveUser()">Confirm Update</button>
         </div>
       </div>
     </div>
   </div>
   
-  <!-- Modal -update btn----   2    -->
+<!-- Modal -update btn----   2    -->
   
   <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">

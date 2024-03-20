@@ -1,0 +1,37 @@
+<div class="container">
+    <h2>Add Book</h2>
+
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic addon1"></span>
+        <input type="text" class="form-control" placeholder="isbn" aria-label="isbn" aria-describedby="basic-addon1"[(ngModel)]="book.isbn"
+        [ngModelOptions]="{standalone:true}">
+    </div>
+
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Recipient's Title" aria-label="Recipient's username" aria-describedby="basic-addon2"
+        [(ngModel)]="book.title" [ngModelOptions]="{standalone:true}">
+        <span class="input-group-text" id="basic addon2">Title</span>
+    </div>
+
+    <div class="mb-3">
+        <div class="input-group">
+            <span class="input-group-text" id="basic addon3">Author</span>
+            <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3 basic-addon4"
+            [(ngModel)]="book.author" [ngModelOptions]="{standalone:true}">
+        </div>
+        <div class="form-text" id="basic addon4" >Example help text gpes outside the input group.</div>
+    </div>
+
+    <div class="input-group mb-3">
+        <span class="input-group-text" >QTY</span>
+        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)"
+        [(ngModel)]="book.qty" [ngModelOptions]="{standalone:true}">
+        <span class="input-group-text" >Lot</span>
+    </div>
+
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="category" aria-label="Username" 
+        [(ngModel)]="book.category" [ngModelOptions]="{standalone:true}">
+    </div>
+    <input type="button" value="Add Book" class="btn btn-primary" (click)="addBook()">
+</div>

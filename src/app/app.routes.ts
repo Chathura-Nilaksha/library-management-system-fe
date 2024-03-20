@@ -5,20 +5,30 @@ import { RegisterComponent } from './page/register/register.component';
 import { ViewAllUsersComponent } from './page/view-all-users/view-all-users.component';
 
 export const routes: Routes = [
+    
     {
         path: "login",
         component: LoginComponent
     },
+
     {
         path: "view-all-books",
         component: ViewAllBooksComponent
     },
+
     {
         path: "sign-up",
         component: RegisterComponent
     },
+
     {
         path: "view-all-users",
         component: ViewAllUsersComponent   
+    },
+    {
+        path:"",
+        redirectTo:"login",
+        pathMatch:"full"
     }
+
 ];

@@ -10,13 +10,12 @@
       <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
       <li><a href="#" class="nav-link px-2">Features</a></li>
       <li><a href="#" class="nav-link px-2" [routerLink]="['/view-all-books']" >View All Books</a></li>
-      <li><a href="#" class="nav-link px-2">FAQs</a></li>
-      <li><a href="#" class="nav-link px-2">About</a></li>
+      <li><a href="#" class="nav-link px-2" [routerLink]="['/view-all-users']">View All Users</a></li>
+      <li><a href="#" class="nav-link px-2" [routerLink]="['/borrow-book']">Borrow Books</a></li>
     </ul>
 
     <div class="col-md-3 text-end">
-      <button type="button" class="btn btn-outline-primary me-2" [routerLink]="['/login']">Login</button>
-      <button type="button" class="btn btn-primary" [routerLink]="['/sign-up']">Sign-up</button>
+      <button type="button" class="btn btn-outline-primary me-2" [routerLink]="['/login']">Log Out</button>
     </div>
   </header>
 </div>
