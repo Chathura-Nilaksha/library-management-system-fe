@@ -3,6 +3,8 @@ import { LoginComponent } from './page/login/login.component';
 import { ViewAllBooksComponent } from './page/view-all-books/view-all-books.component';
 import { RegisterComponent } from './page/register/register.component';
 import { ViewAllUsersComponent } from './page/view-all-users/view-all-users.component';
+import { AddBookComponent } from './page/add-book/add-book.component';
+import { BorrowBookComponent } from './page/borrow-book/borrow-book.component';
 
 export const routes: Routes = [
     
@@ -29,6 +31,14 @@ export const routes: Routes = [
         path:"",
         redirectTo:"login",
         pathMatch:"full"
+    },
+    {
+        path: "add-book",
+        component: AddBookComponent   
+    },
+    {
+        path: "borrow-book",
+        component: BorrowBookComponent  
     }
 
 ];

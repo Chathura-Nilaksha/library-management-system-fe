@@ -23,17 +23,46 @@ export class BorrowBookComponent {
   }
   private http;
   public userName:String="";
+  public searchBookRes:any;
+  public cartList:any=[ ]
+
+  bookIds:any=[ ];
+
+
 
   constructor(http:HttpClient){
     this.http=http;
   }
 
-  // searchUser(){
-  //   console.log(this.userName);
-  //   this.http.get(`http://localhost:8080/user/find-by-user-name/${this.userName}`).subscribe(data=>{
-  //     console.log(data);
-  //     this.user=data;
-  //   })
-  // }
+  searchUser(){
+    console.log(this.userName);
+    this.http.get(`http://localhost:8080/user/find-by-user-name/${this.userName}`).subscribe(data=>{
+      console.log(data);
+      this.user=data;
+    });
+  }
+  searchBook(){
+    this.http.get(`http://localhost:8080/book/search/${this.bookId}`).subscribe(data=>{
+      console.log(data);
+      //sweet alert===get at home===ss 3nos at about 11.13am
+    });
+  }
+
+  loadBookIds(){
+    this.cartList.forEach((element:any) => {
+      this.bookIds.push(element.id);
+    });
+  }
+  borrowBooks(){
+    this.loadBookIds();
+    const borrowBook:any={
+      borrowId:this.user.id,
+      books:this.bookIds,
+      date:new Date(),
+      fine:""
+    }
+    console.log(borrowBook);
+    
+  }
 
 }

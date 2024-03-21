@@ -4,10 +4,10 @@
     <div class="input-group mb-3">
         <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username"
             aria-describedby="button-addon2" [(ngModel)]="userName" [ngModelOptions]="{standalone:true}">
-        <button class="btn btn-success" type="button" id="button-addon2" >Search</button>
+        <button class="btn btn-success" type="button" id="button-addon2" (click)="searchUser()">Search</button>
     </div>
 
-    <table class="table table-bordered">
+    <table class="table table-bordered" *ngIf="user">
         <thead>
             <tr>
                 <th>User Name</th>
@@ -17,7 +17,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngIf="user">
+            <tr>
                 <td>{{user.userName}}</td>
                 <td>{{user.email}}</td>
                 <td>{{user.phoneNumber}}</td>
@@ -27,15 +27,36 @@
 
     </table>
 
-    <!-- <div *ngIf="user">
+    <div *ngIf="user">
         <div class="input-group mb-3">
             <input type="text" class="form-control" placeholder="Book id" aria-label="Book id"
                 aria-describedby="button-addon2" [(ngModel)]="bookId" [ngModelOptions]="{standalone:true}">
             <button class="btn btn-success" type="button" id="button-addon2" (click)="searchBook()">Search</button>
         </div>
-    </div> -->
+    </div>
 
 
 
+    <table class="table table-bordered" *ngIf="searchBookRes">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>ISBN</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Category</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let book of cartList">
+                <td>{{book.id}}</td>
+                <td>{{book.isbn}}</td>
+                <td>{{book.title}}</td>
+                <td>{{book.author}}</td>
+                <td>{{book.category}}</td>
+            </tr>
+        </tbody>
+    </table>
 
+    <button class="btn btn-success" *ngIf="searchBookRes" (click)="borrowBook()">Borrow</button>
 </div>

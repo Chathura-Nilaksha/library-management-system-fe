@@ -8,14 +8,14 @@
 
     <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
       <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
-      <li><a href="#" class="nav-link px-2">Features</a></li>
+      <li><a href="#" class="nav-link px-2" [routerLink]="['/add-book']">Add Book</a></li>
       <li><a href="#" class="nav-link px-2" [routerLink]="['/view-all-books']" >View All Books</a></li>
       <li><a href="#" class="nav-link px-2" [routerLink]="['/view-all-users']">View All Users</a></li>
       <li><a href="#" class="nav-link px-2" [routerLink]="['/borrow-book']">Borrow Books</a></li>
     </ul>
 
     <div class="col-md-3 text-end">
-      <button type="button" class="btn btn-outline-primary me-2" [routerLink]="['/login']">Log Out</button>
+      <button (click)="signOut()" type="button" class="btn btn-outline-primary me-2" [routerLink]="['/login']">Sign Out</button>
     </div>
   </header>
 </div>

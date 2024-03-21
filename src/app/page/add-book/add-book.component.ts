@@ -15,8 +15,6 @@ import Swal from 'sweetalert2';
 })
 export class AddBookComponent {
 
-  constructor(private http:HttpClient){
-  }
   public book:any={
     isbn:"",
     title:"",
@@ -25,6 +23,9 @@ export class AddBookComponent {
     qty:""
   }
 
+  constructor(private http:HttpClient){
+  }
+  
   addBook(){
     console.log(this.book);
     this.http.post("http://Localhost:/8081/book/add", this.book).subscribe(data=>{
